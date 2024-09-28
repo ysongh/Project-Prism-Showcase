@@ -114,7 +114,7 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
         <Image raycast={() => null} ref={image} position={[0, 0, 0.7]} url={url} />
       </mesh>
       <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.025}>
-        {name.split('-').join(' ')}
+        Project# {name.split('-').join(' ')}
       </Text>
     </group>
   )
