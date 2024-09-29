@@ -6,8 +6,8 @@ function Navbar() {
     <nav className="navbar">
       <div className="logo">Project Prism Showcase</div>
       <ul className="nav-links">
-        <li><a href="#features">Features</a></li>
         <Link href="/gallery">Gallery</Link>
+        <Link href="/create-project">Create Project</Link>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>

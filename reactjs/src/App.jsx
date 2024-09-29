@@ -4,13 +4,14 @@ import Navbar from "./components/Navbar";
 import Example from "./page/Example";
 import Gallery from "./page/Gallery";
 import Landing from "./page/Landing";
+import CreateProject from "./page/CreateProject";
 
 function App() {
 
   return (
     <>
       <Navbar />
-      
+
       <Switch>
         <Route path="/users/:name">
           {(params) => <>Hello, {params.name}!</>}
@@ -27,6 +28,10 @@ function App() {
 
         <Route path="/gallery/item/:id">
           <Gallery />
+        </Route>
+
+        <Route path="/create-project">
+          <CreateProject />
         </Route>
 
         <Route path="/">
