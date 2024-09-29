@@ -2,6 +2,7 @@ import { Link, Route, Switch } from "wouter";
 
 import Example from "./page/Example";
 import Gallery from "./page/Gallery";
+import Landing from "./page/Landing";
 
 function App() {
 
@@ -31,6 +32,10 @@ function App() {
 
         <Route path="/gallery/item/:id">
           <Gallery />
+        </Route>
+
+        <Route path="/">
+          <Landing />
         </Route>
 
         {/* Default route in a switch */}
