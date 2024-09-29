@@ -30,16 +30,31 @@ const images = [
 export default function Gallery() {
   const { getProjects } = useContracts();
 
+  const [projects, setProjects] = useState([]);
+
   useEffect(() => {
-    getProjects()
+    fetchProjects();
   }, [])
+
+  const fetchProjects = async () => {
+    let newProjects = await getProjects();
+    let temp = [];
+    for(let i = 0; i < newProjects.length; i++){
+      let currentProject = {};
+      currentProject.position = images[i].position;
+      currentProject.rotation = images[i].rotation;
+      currentProject.url = newProjects[i].cid;
+      temp.push(currentProject);
+    }
+    setProjects(temp);
+  }
   
   return (
     <Canvas dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 2, 15] }} style={{ height: "90vh"}}>
       <color attach="background" args={['#191920']} />
       <fog attach="fog" args={['#191920', 0, 15]} />
       <group position={[0, -0.5, 0]}>
-        <Frames images={images} />
+        <Frames images={projects} />
         <mesh rotation={[-Math.PI / 2, 0, 0]}>
           <planeGeometry args={[50, 50]} />
           <MeshReflectorMaterial
@@ -105,6 +120,7 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
     easing.damp3(image.current.scale, [0.85 * (!isActive && hovered ? 0.85 : 1), 0.9 * (!isActive && hovered ? 0.905 : 1), 1], 0.1, dt)
     easing.dampC(frame.current.material.color, hovered ? 'orange' : 'white', 0.1, dt)
   })
+  console.log(url, "dddd")
   return (
     <group {...props}>
       <mesh
