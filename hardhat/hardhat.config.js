@@ -6,7 +6,7 @@ module.exports = {
   solidity: "0.8.27",
   networks: {
     scrollSepolia: {
-      url: "https://sepolia-rpc.scroll.io/" || "",
+      url: `https://scroll-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_APIKEY}` || "",
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
