@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import lighthouse from "@lighthouse-web3/sdk";
+
+import { LIGHTHOUSE_API_KEY } from '../keys';
 
 const CreateProject = () => {
   // State for form inputs
@@ -8,6 +11,7 @@ const CreateProject = () => {
     link: '',
     file: null,
   });
+  const [photoURL, setPhotoURL] = useState('');
 
   // Handle input changes
   const handleChange = (e) => {
@@ -19,11 +23,26 @@ const CreateProject = () => {
   };
 
   // Handle file selection
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     setFormData({
       ...formData,
       file: e.target.files[0], // Get the first file from the input
     });
+
+    const apiKey = LIGHTHOUSE_API_KEY;
+    const dealParams = {
+        num_copies: 2,
+        repair_threshold: 28800,
+        renew_threshold: 240,
+        miner: ["t017840"],
+        network: "calibration",
+        deal_duration: 1756643958,
+    };
+    const uploadResponse = await lighthouse.upload(e.target.files, apiKey, dealParams);
+    if (uploadResponse) {
+      console.log(`https://gateway.lighthouse.storage/ipfs/${uploadResponse.data.Hash}`);
+      setPhotoURL(`https://gateway.lighthouse.storage/ipfs/${uploadResponse.data.Hash}`);
+    }
   };
 
   // Handle form submission
