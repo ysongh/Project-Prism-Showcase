@@ -2,12 +2,20 @@ import React from 'react';
 import { Link } from "wouter";
 
 const Landing = () => {
+  const connectMetamask = async () => {
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    console.log(accounts[0]);
+  }
+
   return (
     <div className="landing-container">
       {/* Hero Section */}
       <header className="hero">
         <h1>Welcome to Project Prism Showcase</h1>
         <p>A 3D Coding Project Gallery to Explore and Innovate</p>
+        <button onClick={() => connectMetamask()}>
+          Connect Wallet
+        </button>
         <Link className="cta-button" href="/gallery">Explore Gallery</Link>
       </header>
 

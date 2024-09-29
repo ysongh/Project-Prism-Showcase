@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import lighthouse from "@lighthouse-web3/sdk";
 
 import { LIGHTHOUSE_API_KEY } from '../keys';
+import { useContracts } from "../utils/useContracts";
 
 const CreateProject = () => {
+  const { createProject } = useContracts();
+
   // State for form inputs
   const [formData, setFormData] = useState({
     name: '',
@@ -51,6 +54,8 @@ const CreateProject = () => {
     
     // Display form data in the console
     console.log("Form Data:", formData);
+
+    createProject(photoURL, formData.link, formData.name, formData.description);
   };
 
   return (

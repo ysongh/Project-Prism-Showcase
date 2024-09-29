@@ -6,6 +6,8 @@ import { useRoute, useLocation } from 'wouter';
 import { easing } from 'maath';
 import getUuid from 'uuid-by-string';
 
+import { useContracts } from "../utils/useContracts";
+
 const GOLDENRATIO = 1.61803398875;
 
 const pexel = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`;
@@ -26,6 +28,12 @@ const images = [
 ];
 
 export default function Gallery() {
+  const { getProjects } = useContracts();
+
+  useEffect(() => {
+    getProjects()
+  }, [])
+  
   return (
     <Canvas dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 2, 15] }} style={{ height: "90vh"}}>
       <color attach="background" args={['#191920']} />
