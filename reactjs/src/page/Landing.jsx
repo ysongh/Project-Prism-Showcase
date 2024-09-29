@@ -1,19 +1,9 @@
 import React from 'react';
-import { Link, Route, Switch } from "wouter";
+import { Link } from "wouter";
 
 const Landing = () => {
   return (
     <div className="landing-container">
-      {/* Navigation Bar */}
-      <nav className="navbar">
-        <div className="logo">Project Prism Showcase</div>
-        <ul className="nav-links">
-          <li><a href="#features">Features</a></li>
-          <Link href="/gallery">Gallery</Link>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
       {/* Hero Section */}
       <header className="hero">
         <h1>Welcome to Project Prism Showcase</h1>

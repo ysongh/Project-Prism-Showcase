@@ -27,7 +27,7 @@ const images = [
 
 export default function Gallery() {
   return (
-    <Canvas dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 2, 15] }} style={{ height: "80vh"}}>
+    <Canvas dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 2, 15] }} style={{ height: "90vh"}}>
       <color attach="background" args={['#191920']} />
       <fog attach="fog" args={['#191920', 0, 15]} />
       <group position={[0, -0.5, 0]}>
