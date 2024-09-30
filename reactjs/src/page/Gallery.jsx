@@ -45,6 +45,7 @@ export default function Gallery() {
       currentProject.rotation = images[i].rotation;
       currentProject.url = newProjects[i].cid;
       currentProject.projectName = newProjects[i].name;
+      currentProject.description = newProjects[i].description;
       temp.push(currentProject);
     }
     setProjects(temp);
@@ -107,7 +108,7 @@ function Frames({ images, q = new THREE.Quaternion(), p = new THREE.Vector3() })
   )
 }
 
-function Frame({ url, projectName, c = new THREE.Color(), ...props }) {
+function Frame({ url, projectName, description, c = new THREE.Color(), ...props }) {
   const image = useRef()
   const frame = useRef()
   const [, params] = useRoute('/gallery/item/:id')
@@ -120,6 +121,7 @@ function Frame({ url, projectName, c = new THREE.Color(), ...props }) {
     easing.damp3(image.current.scale, [0.85 * (!isActive && hovered ? 0.85 : 1), 0.9 * (!isActive && hovered ? 0.905 : 1), 1], 0.1, dt)
     easing.dampC(frame.current.material.color, hovered ? 'orange' : 'white', 0.1, dt)
   })
+
   console.log(projectName, "dddd")
   return (
     <group {...props}>
@@ -136,9 +138,13 @@ function Frame({ url, projectName, c = new THREE.Color(), ...props }) {
           <meshBasicMaterial toneMapped={false} fog={false} />
         </mesh>
         <Image raycast={() => null} ref={image} position={[0, 0, 0.7]} url={url} />
+       
       </mesh>
-      <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.025}>
+      <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.04}>
         {projectName}
+      </Text>
+      <Text maxWidth={0.25} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO - 0.2, 0]} fontSize={0.025}>
+        {description}
       </Text>
     </group>
   )
