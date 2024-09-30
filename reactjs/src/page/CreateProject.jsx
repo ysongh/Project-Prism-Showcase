@@ -15,6 +15,7 @@ const CreateProject = () => {
     file: null,
   });
   const [photoURL, setPhotoURL] = useState('');
+  const [loading, setLoading] = useState(false);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -32,6 +33,8 @@ const CreateProject = () => {
       file: e.target.files[0], // Get the first file from the input
     });
 
+    setLoading(true);
+
     const apiKey = LIGHTHOUSE_API_KEY;
     const dealParams = {
         num_copies: 2,
@@ -46,6 +49,8 @@ const CreateProject = () => {
       console.log(`https://gateway.lighthouse.storage/ipfs/${uploadResponse.data.Hash}`);
       setPhotoURL(`https://gateway.lighthouse.storage/ipfs/${uploadResponse.data.Hash}`);
     }
+
+    setLoading(false);
   };
 
   // Handle form submission
@@ -114,7 +119,9 @@ const CreateProject = () => {
         </div>
 
         {/* Submit Button */}
-        <button className='form-btn' type="submit">Create Project</button>
+        <button className='form-btn' type="submit" disabled={loading}>
+          {loading ? "Waiting..." : "Create Project"}
+        </button>
       </form>
     </div>
   );
