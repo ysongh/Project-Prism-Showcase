@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Link } from "wouter";
 
-const Landing = () => {
+const Landing = ({ setETHAddress}) => {
   const [address, setAddress] = useState('');
 
   const connectMetamask = async () => {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     console.log(accounts[0]);
     setAddress(accounts[0]);
+    setETHAddress(accounts[0]);
   }
 
   return (

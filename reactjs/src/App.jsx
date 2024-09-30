@@ -1,4 +1,5 @@
-import { Link, Route, Switch } from "wouter";
+import { useState } from 'react';
+import { Route, Switch } from "wouter";
 
 import Navbar from "./components/Navbar";
 import Example from "./page/Example";
@@ -7,6 +8,7 @@ import Landing from "./page/Landing";
 import CreateProject from "./page/CreateProject";
 
 function App() {
+  const [ethAddress, setETHAddress] = useState('');
 
   return (
     <>
@@ -23,11 +25,11 @@ function App() {
 
 
         <Route path="/gallery">
-          <Gallery />
+          <Gallery ethAddress={ethAddress} />
         </Route>
 
         <Route path="/gallery/item/:id">
-          <Gallery />
+          <Gallery ethAddress={ethAddress} />
         </Route>
 
         <Route path="/create-project">
@@ -35,7 +37,7 @@ function App() {
         </Route>
 
         <Route path="/">
-          <Landing />
+          <Landing setETHAddress={setETHAddress} />
         </Route>
 
         {/* Default route in a switch */}

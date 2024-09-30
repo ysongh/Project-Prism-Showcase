@@ -27,7 +27,7 @@ const images = [
   { position: [2, 0, 2.75], rotation: [0, -Math.PI / 2.5, 0], url: pexel(1738986) }
 ];
 
-export default function Gallery() {
+export default function Gallery({ ethAddress }) {
   const { getProjects } = useContracts();
 
   const [projects, setProjects] = useState([]);
@@ -83,6 +83,9 @@ export default function Gallery() {
     <Canvas dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 2, 15] }} style={{ height: "90vh"}}>
       <color attach="background" args={['#191920']} />
       <fog attach="fog" args={['#191920', 0, 15]} />
+      <Text position={[0, 3, 0]} fontSize={0.4}>
+        Projects for {ethAddress ? ethAddress.slice(0, 5) + "..." + ethAddress.slice(37, 42) : '0x'}
+      </Text>
       <group position={[0, -0.5, 0]}>
         <Frames images={projects} />
         <mesh rotation={[-Math.PI / 2, 0, 0]}>
