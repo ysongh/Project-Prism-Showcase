@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useCursor, MeshReflectorMaterial, Image, Text, Environment } from '@react-three/drei';
+import { useCursor, MeshReflectorMaterial, Html, Image, Text, Environment } from '@react-three/drei';
 import { useRoute, useLocation } from 'wouter';
 import { easing } from 'maath';
 import getUuid from 'uuid-by-string';
@@ -171,9 +171,24 @@ function Frame({ url, projectName, description, c = new THREE.Color(), ...props 
       <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.04}>
         {projectName}
       </Text>
-      <Text maxWidth={0.25} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO - 0.2, 0]} fontSize={0.025}>
+      {isActive && <Text maxWidth={0.25} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO - 0.2, 0]} fontSize={0.025}>
         {description}
-      </Text>
+      </Text>}
+      <Html transform nchorX="left" anchorY="top" position={[0.65, GOLDENRATIO - 1, 0]}>
+        {isActive && <button
+          style={{
+            padding: '1px 2px',
+            backgroundColor: '#4CAF50',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            fontSize: '1px'
+          }}
+        >
+          See Code
+        </button>}
+      </Html>
     </group>
   )
 }
