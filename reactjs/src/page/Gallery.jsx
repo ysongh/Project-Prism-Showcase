@@ -48,34 +48,6 @@ export default function Gallery({ ethAddress }) {
       currentProject.description = newProjects[i].description;
       temp.push(currentProject);
     }
-    temp.push({
-      "position": images[5].position,
-      "rotation": images[5].rotation,
-      "url": "https://gateway.lighthouse.storage/ipfs/bafkreicagvifzhi7ke2msrhjah5uhbarqtp73gsv2kfggxpihgs6gdjscq",
-      "projectName": "Battery Bounty",
-      "description": "Join the movement to properly dispose of batteries and protect our environment"
-    })
-    temp.push({
-      "position": images[6].position,
-      "rotation": images[6].rotation,
-      "url": "https://gateway.lighthouse.storage/ipfs/bafkreicagvifzhi7ke2msrhjah5uhbarqtp73gsv2kfggxpihgs6gdjscq",
-      "projectName": "Battery Bounty",
-      "description": "Join the movement to properly dispose of batteries and protect our environment"
-    })
-    temp.push({
-      "position": images[7].position,
-      "rotation": images[7].rotation,
-      "url": "https://gateway.lighthouse.storage/ipfs/bafkreicagvifzhi7ke2msrhjah5uhbarqtp73gsv2kfggxpihgs6gdjscq",
-      "projectName": "Battery Bounty",
-      "description": "Join the movement to properly dispose of batteries and protect our environment"
-    })
-    temp.push({
-      "position": images[8].position,
-      "rotation": images[8].rotation,
-      "url": "https://gateway.lighthouse.storage/ipfs/bafkreicagvifzhi7ke2msrhjah5uhbarqtp73gsv2kfggxpihgs6gdjscq",
-      "projectName": "Battery Bounty",
-      "description": "Join the movement to properly dispose of batteries and protect our environment"
-    })
     setProjects(temp);
   }
   
