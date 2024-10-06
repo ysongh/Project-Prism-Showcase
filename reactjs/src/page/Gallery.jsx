@@ -125,14 +125,13 @@ function Frame({ url, projectName, description, c = new THREE.Color(), ...props 
     easing.dampC(frame.current.material.color, hovered ? 'orange' : 'white', 0.1, dt)
   })
 
-  console.log(projectName, "dddd")
   return (
     <group {...props}>
       <mesh
         name={name}
         onPointerOver={(e) => (e.stopPropagation(), hover(true))}
         onPointerOut={() => hover(false)}
-        scale={[1, GOLDENRATIO, 0.05]}
+        scale={[2, GOLDENRATIO - 0.4, 0.05]}
         position={[0, GOLDENRATIO / 2, 0]}>
         <boxGeometry />
         <meshStandardMaterial color="#151515" metalness={0.5} roughness={0.5} envMapIntensity={2} />
