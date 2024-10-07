@@ -142,7 +142,7 @@ function Frame({ url, projectName, description, c = new THREE.Color(), ...props 
         <Image raycast={() => null} ref={image} position={[0, 0, 0.7]} url={url} />
        
       </mesh>
-      <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.04}>
+      <Text anchorX="left" anchorY="top" position={[-1, GOLDENRATIO, 0]} fontSize={0.1}>
         {projectName}
       </Text>
       {isActive && <Text maxWidth={0.25} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO - 0.2, 0]} fontSize={0.025}>
