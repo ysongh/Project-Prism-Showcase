@@ -145,7 +145,7 @@ function Frame({ url, projectName, description, c = new THREE.Color(), ...props 
       <Text anchorX="left" anchorY="top" position={[-1, GOLDENRATIO, 0]} fontSize={0.1}>
         {projectName}
       </Text>
-      {isActive && <Text maxWidth={0.25} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO - 0.2, 0]} fontSize={0.025}>
+      {isActive && <Text maxWidth={2} anchorX="left" anchorY="top" position={[-1, GOLDENRATIO - 1.45, 0]} fontSize={0.05}>
         {description}
       </Text>}
       <Html transform nchorX="left" anchorY="top" position={[0.65, GOLDENRATIO - 1, 0]}>
