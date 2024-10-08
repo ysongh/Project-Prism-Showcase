@@ -13,7 +13,7 @@ const GOLDENRATIO = 1.61803398875;
 const pexel = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`;
 const images = [
   // Front
-  { position: [0, 0, 1.5], rotation: [0, 0, 0], url: pexel(1103970) },
+  { position: [0, 0, 2], rotation: [0, 0, 0], url: pexel(1103970) },
   // Back
   { position: [-1, 0, -0.6], rotation: [0, 0, 0], url: pexel(416430) },
   { position: [1, 0, -0.6], rotation: [0, 0, 0], url: pexel(310452) },
