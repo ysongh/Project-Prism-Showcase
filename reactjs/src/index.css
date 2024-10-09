@@ -144,6 +144,11 @@ body, html {
   text-align: center;
 }
 
+.create-project {
+  background-color: #282c34;
+  padding: 2rem;
+}
+
 .create-project-form {
   background-color: #f9f9f9;
   padding: 2rem;
