@@ -148,7 +148,7 @@ function Frame({ url, projectName, description, c = new THREE.Color(), ...props 
       {isActive && <Text maxWidth={2} anchorX="left" anchorY="top" position={[-1, GOLDENRATIO - 1.45, 0]} fontSize={0.05}>
         {description}
       </Text>}
-      <Html transform nchorX="left" anchorY="top" position={[0.65, GOLDENRATIO - 1, 0]}>
+      <Html transform nchorX="left" anchorY="top" position={[0.9, GOLDENRATIO + 0.04, 0]}>
         {isActive && <button
           style={{
             padding: '1px 2px',
