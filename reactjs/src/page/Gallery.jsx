@@ -52,8 +52,8 @@ export default function Gallery({ ethAddress }) {
   
   return (
     <Canvas dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 2, 15] }} style={{ height: "90vh"}}>
-      <color attach="background" args={['#191920']} />
-      <fog attach="fog" args={['#191920', 0, 15]} />
+      <color attach="background" args={['#0a192f']} />
+      <fog attach="fog" args={['#0a192f', 0, 15]} />
       <Text position={[0, 3, 0]} fontSize={0.4}>
         Projects for {ethAddress ? ethAddress.slice(0, 5) + "..." + ethAddress.slice(37, 42) : '0x'}
       </Text>
