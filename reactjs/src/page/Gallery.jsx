@@ -138,8 +138,15 @@ function Frame({ url, projectName, description, c = new THREE.Color(), ...props 
           <boxGeometry />
           <meshBasicMaterial toneMapped={false} fog={false} />
         </mesh>
-        <Image raycast={() => null} ref={image} position={[0, 0, 0.7]} url={url} />
-       
+        <Image 
+          raycast={() => null} 
+          ref={image} 
+          position={[0, 0, 0.7]} 
+          url={url}
+          scale={1.75}
+          fit="contain"
+          dispose={null}
+        />
       </mesh>
       <Text anchorX="left" anchorY="top" position={[-1, GOLDENRATIO, 0]} fontSize={0.1}>
         {projectName}
