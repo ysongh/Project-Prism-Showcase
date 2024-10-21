@@ -45,6 +45,7 @@ export default function Gallery({ ethAddress }) {
       currentProject.url = newProjects[i].cid;
       currentProject.projectName = newProjects[i].name;
       currentProject.description = newProjects[i].description;
+      currentProject.codeLink = newProjects[i].url;
       temp.push(currentProject);
     }
     setProjects(temp);
@@ -110,7 +111,7 @@ function Frames({ images, q = new THREE.Quaternion(), p = new THREE.Vector3() })
   )
 }
 
-function Frame({ url, projectName, description, c = new THREE.Color(), ...props }) {
+function Frame({ url, projectName, description, codeLink, c = new THREE.Color(), ...props }) {
   const image = useRef()
   const frame = useRef()
   const [, params] = useRoute('/gallery/item/:id')
@@ -123,6 +124,14 @@ function Frame({ url, projectName, description, c = new THREE.Color(), ...props 
     easing.damp3(image.current.scale, [0.85 * (!isActive && hovered ? 0.85 : 1), 0.9 * (!isActive && hovered ? 0.905 : 1), 1], 0.1, dt)
     easing.dampC(frame.current.material.color, hovered ? 'orange' : 'white', 0.1, dt)
   })
+
+
+  const openLinkToCode = (e) => {
+    e.stopPropagation(); // Prevent event bubbling
+    if (codeLink) {
+      window.open(codeLink, '_blank', 'noopener,noreferrer');
+    }
+  }
 
   return (
     <group {...props}>
@@ -156,6 +165,7 @@ function Frame({ url, projectName, description, c = new THREE.Color(), ...props 
       </Text>}
       <Html transform nchorX="left" anchorY="top" position={[0.9, GOLDENRATIO + 0.04, 0]}>
         {isActive && <button
+          onClick={openLinkToCode}
           style={{
             padding: '1px 2px',
             backgroundColor: '#4CAF50',
