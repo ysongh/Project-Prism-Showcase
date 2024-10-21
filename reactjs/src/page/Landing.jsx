@@ -20,6 +20,7 @@ const Landing = ({ setETHAddress}) => {
         {!address ? <button className="cta-button"  onClick={() => connectMetamask()}>
           Connect Wallet
         </button> : <Link className="cta-button" href="/gallery">Explore Gallery</Link>}
+        <w3m-button />
       </header>
 
       {/* Features Section */}
