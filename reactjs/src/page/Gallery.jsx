@@ -17,12 +17,13 @@ const images = [
   { position: [-1, 0, -0.6], rotation: [0, 0, 0]},
   { position: [1, 0, -0.6], rotation: [0, 0, 0] },
   // Left
-  { position: [-2, 0, 1.2], rotation: [0, Math.PI / 2.5, 0]},
-  { position: [-2.15, 0, 3], rotation: [0, Math.PI / 2.5, 0]},
+  { position: [-2.2, 0, 1.2], rotation: [0, Math.PI / 2.5, 0]},
+  { position: [-2.7, 0, 3.2], rotation: [0, Math.PI / 2.5, 0]},
+  { position: [-3, 0, 2.75], rotation: [0, Math.PI / 2.5, 0]},
   // { position: [-3, 0, 2.75], rotation: [0, Math.PI / 2.5, 0]},
   // Right
   { position: [2.4, 0, 0.25], rotation: [0, -Math.PI / 2.5, 0]},
-  { position: [4, 0, 1.5], rotation: [0, -Math.PI / 2.5, 0]},
+  { position: [3, 0, 2.2], rotation: [0, -Math.PI / 2.5, 0]},
   { position: [2, 0, 2.75], rotation: [0, -Math.PI / 2.5, 0]}
 ];
 
