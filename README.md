@@ -3,6 +3,3 @@ A dApp where users can store their projects on-chain and showcase them in an imm
 
 ### Verified Smart Contract 
 https://sepolia.scrollscan.com/address/0x2Fe28e60d6272e833CeC32F6b1cdC9D4eE8744bd#code
-
-### Use of the Alchemy RPC
-https://github.com/ysongh/Project-Prism-Showcase/blob/dev/hardhat/hardhat.config.js#L9
