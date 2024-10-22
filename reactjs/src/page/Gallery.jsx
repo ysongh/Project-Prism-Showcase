@@ -5,6 +5,7 @@ import { useCursor, MeshReflectorMaterial, Html, Image, Text, Environment } from
 import { useRoute, useLocation } from 'wouter';
 import { easing } from 'maath';
 import getUuid from 'uuid-by-string';
+import { useAppKitAccount } from "@reown/appkit/react";
 
 import { useContracts } from "../utils/useContracts";
 
@@ -29,6 +30,7 @@ const images = [
 
 export default function Gallery({ ethAddress }) {
   const { getProjects } = useContracts();
+  const { address } = useAppKitAccount();
 
   const [projects, setProjects] = useState([]);
 
@@ -57,7 +59,7 @@ export default function Gallery({ ethAddress }) {
       <color attach="background" args={['#0a192f']} />
       <fog attach="fog" args={['#0a192f', 0, 15]} />
       <Text position={[0, 3, 0]} fontSize={0.4}>
-        Projects for {ethAddress ? ethAddress.slice(0, 5) + "..." + ethAddress.slice(37, 42) : '0x'}
+        Projects for {address ? address.slice(0, 5) + "..." + address.slice(37, 42) : '0x'}
       </Text>
       <group position={[0, -0.5, 0]}>
         <Frames images={projects} />
